@@ -1,0 +1,46 @@
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type Mutation {
+    createPost(input: InputPost): Post
+    updatePost(input: InputPost): Post
+    deletePost(id:Int!): BaseResponse
+}
+
+type Query {
+    getUser(id:Int!): User
+    getUsers: [User]
+    getCurrentUser: User
+    getPosts: [Post]
+    getPost(id:Int!): Post
+}
+
+input InputPost {
+    id: ID
+    shortPost: String
+    coverImage: String
+    text: String
+    title: String
+}
+
+type Post {
+    id: ID!
+    shortPost: String
+    coverImage: String
+    text: String
+    title: String
+    user: User
+}
+
+type BaseResponse {
+    result: String
+}
+
+type User {
+    id: ID!
+    firstName: String
+    lastName: String
+    email: String
+}

@@ -1,0 +1,25 @@
+spring:
+  graphql:
+    path: /graphql
+    schema:
+      printer:
+        enabled: true
+    graphiql:
+      enabled: true
+      path: /graphiql
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres_temp
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties.hibernate:
+      show_sql: true
+      format_sql: true
+
+appInfo:
+  version: 0.0.1
+  dbUrl: ${spring.datasource.url}
+  dbUsername: ${spring.datasource.username}
